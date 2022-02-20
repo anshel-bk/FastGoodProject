@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render
 
 # Create your views here.
@@ -13,5 +13,7 @@ def food_home(request):
     return render(request,'FastGoodApp/home_page.html', {'title':'Главная страница','shaurma_menu':shaurma})
 
 
-def food_menu(request):
-    return HttpResponse('Меню')
+def product_info(request,shaurma_slug):
+    shaurma = Shaurma_Food.objects.filter(slug=shaurma_slug)
+    post = get_object_or_404(Shaurma_Food, slug=shaurma_slug)
+    return render(request,'FastGoodApp/product_info.html',{'shaurma_menu':shaurma})

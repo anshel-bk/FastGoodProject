@@ -9,7 +9,7 @@ from .views import *
 
 urlpatterns = [
     path('home/', food_home, name='home'),
-    path('menu/', food_menu, name='menu')
+    path('product/<slug:shaurma_slug>/', product_info, name='product')
 ]
 
 if settings.DEBUG:
