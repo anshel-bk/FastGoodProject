@@ -1,4 +1,6 @@
 {% extends 'FastGoodApp/base.html' %}
+{% load static %}
+<link type="text/css" href="{% static 'FastGoodApp/css/home_page.css' %}" rel="stylesheet" />
 {% block content %}
     <h1>{{ title }}</h1>
     {% for shaurma in shaurma_menu %}
