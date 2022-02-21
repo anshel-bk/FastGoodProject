@@ -1,3 +1,20 @@
-li,a {
- vertical-align: bottom;
+table {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 14px;
+  background: #FFDFC4;
+  max-width: 70%;
+  width: 70%;
+  border-collapse: collapse;
+  text-align: left;
+}
+th {
+  font-weight: normal;
+  border-bottom: 1px solid #d1b798;
+  padding: 8px 2px;
+}
+
+td {
+  border-right: 30px solid ;
+  border-left: 30px solid ;
+  padding: 12px 2px;
 }
