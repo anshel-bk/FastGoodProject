@@ -5,15 +5,17 @@
 {% endblock css_additional %}
 {% block content %}
     <h1>{{ title }}</h1>
-    {% for shaurma in shaurma_menu %}
-        <table>
-        <div class="list-topic">
-            <tr>
-            <th><li><a href="{{ shaurma.get_absolute_url }}">{{ shaurma.title }}</a></li></th>
-            </tr>
-        </div>
-        </table>
-    {% endfor %}
+    <table>
+        {%  for shaurma in shaurma_menu %}
+            {% if forloop.counter0|divisibleby:"3" %}
+                <tr width=50>
+            {% endif %}
+            <td><li><a href="{{ shaurma.get_absolute_url }}">{{ shaurma.title }}</a></li></td>
+        {% if forloop.counter|divisibleby:"3" %}
+           </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
 {% endblock content %}
 
 
