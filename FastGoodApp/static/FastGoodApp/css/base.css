@@ -8,12 +8,6 @@ html, body {
 	color: #444;
 }
 
-.logo {
-	background: url('../images/logo.png') no-repeat 10px 5px;
-	width: 64px;
-	height: 64px;
-}
-
 li,a {
    empty-cells: hide;
 }
