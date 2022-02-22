@@ -13,3 +13,12 @@ html, body {
 	padding: 45px;
 	color: black;
 }
+
+.user_name {
+	margin-top: -40px ;
+	margin-left: 85%;
+}
+
+.info{
+	margin-bottom:20px ;
+}

@@ -11,7 +11,8 @@ urlpatterns = [
     path('home/', food_home, name='home'),
     path('product/<slug:shaurma_slug>/', product_info, name='product'),
     path('register',RegisterUser.as_view(),name='register'),
-    path('login',login,name='login')
+    path('login',LoginUser.as_view(),name='login'),
+    path('logout/', LoginUser.as_view(), name='logout'),
 ]
 
 if settings.DEBUG:

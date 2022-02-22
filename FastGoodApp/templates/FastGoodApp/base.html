@@ -10,9 +10,13 @@
 </head>
 <body>
 <a href="{% url "home" %}"><img src="{% static "FastGoodApp/images/logo.png" %}" alt="Лого"  height="64" width="64"></a>
-    <a>О Сайте</a>
-    <a>Контактные данные</a>
-    <a class="user_author" href="{% url 'register' %}"> Регистрация</a>|  <a href="{% url 'login' %}">Вход</a>
+    {% if request.user.is_authenticated %}
+        <li class="user_name"> {{user.username}} | <a href="{% url 'logout' %}">Сменить пользователя</a></li>
+    {% else %}
+        <li class="last"><a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a></li>
+    {% endif %}
+    <a class="info">О Сайте</a>
+    <a class="info"> Контактные данные</a>
     {% block content %}
     {% endblock %}
 </body>

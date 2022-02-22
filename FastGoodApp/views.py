@@ -1,4 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render
 
@@ -8,7 +9,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
-from .forms import RegisterUserForm
+from .forms import RegisterUserForm, LoginUserForm
 from .models import *
 # Create your views here.
 
@@ -29,5 +30,10 @@ class RegisterUser(CreateView):
     success_url = reverse_lazy('login')
 
 
-def login(request):
-    return HttpResponse('Успешная регистрация')
+class LoginUser(LoginView):
+    form_class = LoginUserForm
+    template_name = 'FastGoodApp/login.html'
+
+    def get_success_url(self):
+        return reverse_lazy('home')
+
