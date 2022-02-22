@@ -9,7 +9,9 @@ from .views import *
 
 urlpatterns = [
     path('home/', food_home, name='home'),
-    path('product/<slug:shaurma_slug>/', product_info, name='product')
+    path('product/<slug:shaurma_slug>/', product_info, name='product'),
+    path('register',RegisterUser.as_view(),name='register'),
+    path('login',login,name='login')
 ]
 
 if settings.DEBUG:

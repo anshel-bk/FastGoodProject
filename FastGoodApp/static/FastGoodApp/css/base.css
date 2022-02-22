@@ -8,11 +8,8 @@ html, body {
 	color: #444;
 }
 
-li,a {
-   empty-cells: hide;
-}
-
-p{
+.user_author {
 	display: inline;
-	padding: 25px;
+	padding: 45px;
+	color: black;
 }

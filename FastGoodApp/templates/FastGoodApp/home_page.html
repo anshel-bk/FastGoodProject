@@ -11,9 +11,6 @@
                 <tr width=50>
             {% endif %}
             <td><li><a href="{{ shaurma.get_absolute_url }}">{{ shaurma.title }}</a></li></td>
-        {% if forloop.counter|divisibleby:"3" %}
-           </tr>
-        {% endif %}
         {% endfor %}
     </table>
 {% endblock content %}
