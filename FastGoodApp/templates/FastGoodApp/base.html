@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link type="text/css" href="{% static 'FastGoodApp/css/base.css' %}" rel="stylesheet" />
+    {% block css_additional %}
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    {% endblock css_additional %}
+</head>
+<body>
+<a href="{% url "home" %}"><img src="{% static "FastGoodApp/images/logo.png" %}" alt="Лого"  height="64" width="64"></a>
+    <a>О Сайте</a>
+    <a>Контактные данные</a>
+    <a class="user_author" href="{% url 'register' %}"> Регистрация</a>|  <a href="{% url 'login' %}">Вход</a>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

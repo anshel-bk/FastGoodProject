@@ -1,0 +1,8 @@
+{% extends 'FastGoodApp/base.html' %}
+{% block content %}
+{% for shaurma in shaurma_menu %}
+    <li>{{ shaurma.title }}</li>
+    <li>{{ shaurma.price }}</li>
+{% endfor %}
+{% endblock content %}
+
