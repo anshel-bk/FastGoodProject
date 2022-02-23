@@ -1,8 +1,11 @@
 {% extends 'FastGoodApp/base.html' %}
+{% load static %}
 {% block content %}
 {% for shaurma in shaurma_menu %}
     <br><li>{{ shaurma.title }}</li>
     <li>{{ shaurma.price }}</li>
+    <li>{{ shaurma.composition }}</li>
+    <img src="{{ shaurma.photo.url }}" alt="продукт" height="256" width="256">
 {% endfor %}
 {% endblock content %}
 
