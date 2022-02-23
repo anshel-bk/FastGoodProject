@@ -7,22 +7,36 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView, DetailView
 
 from .forms import RegisterUserForm, LoginUserForm
 from .models import *
 # Create your views here.
 
 
-def food_home(request):
-    shaurma = Shaurma_Food.objects.all()
-    return render(request,'FastGoodApp/home_page.html', {'title':'Главная страница','shaurma_menu':shaurma})
+class FoodHome(ListView):
+    model = Shaurma_Food
+    template_name = 'FastGoodApp/home_page.html'
+    context_object_name = 'shaurma_menu'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Главная страница'
+        return context
 
-def product_info(request,shaurma_slug):
-    shaurma = Shaurma_Food.objects.filter(slug=shaurma_slug)
-    post = get_object_or_404(Shaurma_Food, slug=shaurma_slug)
-    return render(request,'FastGoodApp/product_info.html',{'shaurma_menu':shaurma})
+class ProductInfo(ListView):
+    model = Shaurma_Food
+    template_name = 'FastGoodApp/product_info.html'
+    context_object_name = 'shaurma_menu'
+    slug_url_kwarg = 'shaurma_slug'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Информация о продукте'
+        return context
+
+    def get_queryset(self):
+        return Shaurma_Food.objects.filter(slug=self.kwargs['shaurma_slug'])
 
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
