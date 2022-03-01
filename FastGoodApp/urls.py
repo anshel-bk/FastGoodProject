@@ -10,8 +10,9 @@ from .views import *
 urlpatterns = [
     path('home/', FoodHome.as_view(), name='home'),
     path('product/<slug:shaurma_slug>/', ProductInfo.as_view(), name='product'),
-    path('register',RegisterUser.as_view(),name='register'),
-    path('login',LoginUser.as_view(),name='login'),
+    path('register', RegisterUser.as_view(), name='register'),
+    path('category/<int:cat_id>/', show_category, name='category'),
+    path('login', LoginUser.as_view(), name='login'),
     path('logout/', LoginUser.as_view(), name='logout'),
 ]
 

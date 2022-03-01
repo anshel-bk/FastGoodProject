@@ -4,7 +4,7 @@
 <link type="text/css" href="{% static 'FastGoodApp/css/home_page.css' %}" rel="stylesheet" />
 {% endblock css_additional %}
 {% block content %}
-    <h1>{{ title }}</h1>
+    <h3>Главная страница</h3>
     <table>
         {%  for shaurma in shaurma_menu %}
             {% if forloop.counter0|divisibleby:"3" %}

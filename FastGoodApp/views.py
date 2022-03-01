@@ -11,20 +11,23 @@ from django.views.generic import CreateView, ListView, DetailView
 
 from .forms import RegisterUserForm, LoginUserForm
 from .models import *
+from .utils import *
 # Create your views here.
 
 
-class FoodHome(ListView):
+class FoodHome(DataMixin,ListView):
     model = Shaurma_Food
+
     template_name = 'FastGoodApp/home_page.html'
     context_object_name = 'shaurma_menu'
 
     def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Главная страница'
-        return context
+            context = super().get_context_data(**kwargs)
+            c_def = self.get_user_context(title="Главная страница")
+            context = dict(list(context.items()) + list(c_def.items()))
+            return context
 
-class ProductInfo(ListView):
+class ProductInfo(DataMixin,ListView):
     model = Shaurma_Food
     template_name = 'FastGoodApp/product_info.html'
     context_object_name = 'shaurma_menu'
@@ -32,6 +35,7 @@ class ProductInfo(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        print(context)
         context['title'] = 'Информация о продукте'
         return context
 
@@ -51,3 +55,5 @@ class LoginUser(LoginView):
     def get_success_url(self):
         return reverse_lazy('home')
 
+def show_category(request, cat_id):
+    return HttpResponse(f"Отображение категории с id = {cat_id}")
