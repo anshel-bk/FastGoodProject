@@ -56,4 +56,4 @@ class LoginUser(LoginView):
         return reverse_lazy('home')
 
 def show_category(request, cat_id):
-    return HttpResponse(f"Отображение категории с id = {cat_id}")
+    return HttpResponse(f"Отображение категории с id = {cat_id} корректное")
