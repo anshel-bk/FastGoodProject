@@ -9,13 +9,13 @@
     {% endblock css_additional %}
 </head>
 <body>
-<a href="{% url "home" %}"><img src="{% static "FastGoodApp/images/logo.png" %}" alt="Лого"  height="64" width="64"></a>
+<a href="{% url "home" %}"><img src="{% static "FastGoodApp/images/logo.png" %}" alt="Лого"  height="50" width="50"></a>
     {% if request.user.is_authenticated %}
         <li class="user_name"> {{user.username}} | <a href="{% url 'logout' %}">Сменить пользователя</a></li>
     {% else %}
         <li class="last"><a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a></li>
     {% endif %}
-    <a class="info"> О Сайте</a>
+    <a class="info" href="{% url 'contact' %}"> Отзывы </a>
     <a class="info"> Контактные данные</a>
     {% if cat_selected == 0 %}
                        <li class="selected">Все категории</li>

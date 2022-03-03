@@ -14,6 +14,7 @@ urlpatterns = [
     path('category/<int:cat_id>/', show_category, name='category'),
     path('login', LoginUser.as_view(), name='login'),
     path('logout/', LoginUser.as_view(), name='logout'),
+    path('contact/', ContactFormView.as_view(), name='contact'),
 ]
 
 if settings.DEBUG:
